@@ -16,7 +16,7 @@
             <h3>Search Contact</h3>
             <form action="#" class="form-inline" id="search-form">
                 <div class="form-group">
-                    <input id="id" type="text" class="form-control" placeholder="Type contact Id..." name="id">
+                    <input id="id" type="text" class="form-control" placeholder="Type contact Id..." name="id" required>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary search" type="submit">Search</button>
@@ -24,14 +24,14 @@
             </form>
         </div>
         <%if(contact!=null){%>
-            <div class="card container" style="width: 18rem; heigth: 10px;">
+            <div class="card container search-card" style="width: 18rem; heigth: 10px;">
                 <div class="card-header">
                     <h4>Contact</h4>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Name: <%=contact.name%></h5>
                     <h6 class="card-subtitle mb-2 text-muted">Email: <%=contact.email%></h6>
-                    <h6 class="card-subtitle mb-2 text-muted">Phone Number: <%=contact.phoneNumber%></h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Phone Number: <%=contact.phone%></h6>
                     <h6 class="card-subtitle mb-2 text-muted">Gender: <%=contact.gender%></h6>
                 </div>
             </div>
