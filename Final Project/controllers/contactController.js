@@ -56,7 +56,8 @@ exports.contactGetAll = (req,res) =>{
 
 //Update a contact → /contacts/:id
 exports.contactUpdate = (req,res) =>{
-    request.put({url:'https://cryptic-retreat-41638.herokuapp.com/api/contacts'+req.params.id, 
+    console.log(`${req.body.id}`)
+    request.put({url:'https://cryptic-retreat-41638.herokuapp.com/api/contacts/'+req.body.id, 
         form: {
             name: `${req.body.name}`,
             email: `${req.body.email}`,
