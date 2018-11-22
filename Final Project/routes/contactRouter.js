@@ -5,6 +5,8 @@ var contactController = require('../controllers/contactController')
 
 router.get('/register',contactController.contactRegisterPage)
 
+router.get('/update/:id',contactController.contactUpdatePage)
+
 router.get('/search', contactController.contactSearchPage)
 
 //Register a contact → /contacts

@@ -31,9 +31,9 @@
                         <tr>
                             <td><%=contacts[i].name%></td>
                             <td><%=contacts[i].email%></td>
-                            <td><%=contacts[i].phoneNumber%></td>
+                            <td><%=contacts[i].phone%></td>
                             <td><%=contacts[i].gender%></td>
-                            <td><button class="edit btn btn-warning" onClick="editContact(`<%=contacts[i]._id%>`)">Edit</button></td>
+                            <td><a class="edit btn btn-warning" href="/contacts/update/<%=contacts[i]._id%>">Edit</a></td>
                             <td><button class="delete btn btn-danger" onClick="deleteContact(`<%=contacts[i]._id%>`)">Delete</button></td>
                         </tr>
                     <%}%>

@@ -1,12 +1,12 @@
-function editContact(id){
-    $.ajax({
-        url: "/contacts/" + id,
-        type: "PUT",
-        success: function(){
-            console.log('Funfou')
-        }
-      });
-}
+// function editContact(id){
+//     $.ajax({
+//         url: "/contacts/" + id,
+//         type: "PUT",
+//         success: function(){
+//             console.log('Funfou')
+//         }
+//       });
+// }
 
 function deleteContact(id){
     $.ajax({
@@ -20,6 +20,10 @@ function deleteContact(id){
 
 $('#search-form').submit(function(){
     $('#search-form').attr('action', '/contacts/'+$("#id").val());
+ });
+
+ $('#update-form').submit(function(){
+    $('#update-form').attr('action', '/contacts/'+$("#id").val());
  });
 
 // $(".search").click(()=>{
