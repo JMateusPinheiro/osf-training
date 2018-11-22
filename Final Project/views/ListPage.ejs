@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>List Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container center-block">
+            <img src="/assets/osf-logo.png" alt="Logo" class="image">
+            <h1>OSF Global Services</h1>
+        </div>
+        <div class="container table-style">
+            <a href="/contacts/register" class="btn btn-success">New Contact</a>
+            <a href="/contacts/search" class="btn btn-primary">Search Contact</a>
+            <table class="table table-style">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%for(var i = 0; i < contacts.length; i++){%>
+                        <tr>
+                            <td><%=contacts[i].name%></td>
+                            <td><%=contacts[i].email%></td>
+                            <td><%=contacts[i].phoneNumber%></td>
+                            <td><%=contacts[i].gender%></td>
+                            <td><button class="edit btn btn-warning" onClick="editContact(`<%=contacts[i]._id%>`)">Edit</button></td>
+                            <td><button class="delete btn btn-danger" onClick="deleteContact(`<%=contacts[i]._id%>`)">Delete</button></td>
+                        </tr>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="/js/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <script src="/js/script.js"></script>
+    </body>
+</html>
