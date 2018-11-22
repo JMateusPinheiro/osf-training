@@ -13,13 +13,13 @@ function deleteContact(id){
         type: "DELETE",
         url: "/contacts/" + id,
         success: function(result){
-            location.replace('/');
+            location.reload();
         }
     })
 }
 
 $('#search-form').submit(function(){
-    $('#search-form').attr('action', '/contacts/'+$("#id").val());
+    $('#search-form').attr('action', '/contacts/'+$("#id").val())
  });
 
  $('#update-form').submit(function(){

@@ -16,7 +16,7 @@ router.post('/',contactController.contactRegister)
 router.get('/',contactController.contactGetAll)
 
 //Update a contact → /contacts/:id
-router.put('/:id', contactController.contactUpdate)
+router.post('/:id', contactController.contactUpdate)
 
 //Delete a contact → /contacts/:id
 router.delete('/:id', contactController.contactDelete)

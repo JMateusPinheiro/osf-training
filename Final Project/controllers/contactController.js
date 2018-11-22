@@ -1,4 +1,5 @@
 var axios = require('axios')
+var request = require('request')
 
 var contact = require('../models/contactModel')
 
@@ -25,19 +26,16 @@ exports.contactUpdatePage = (req,res) =>{
 
 //Register a contact → /contacts
 exports.contactRegister = (req,res) =>{
-    axios.post('https://cryptic-retreat-41638.herokuapp.com/api/contacts', {
+    request.post({url:'https://cryptic-retreat-41638.herokuapp.com/api/contacts', 
+        form: {
             name: `${req.body.name}`,
             email: `${req.body.email}`,
             phone: `${req.body.phone}`,
             gender: `${req.body.gender}`
-    })
-    .then(function (response) {
-        console.log(response.data)
-        res.redirect('/contacts/register')
-    })
-    .catch(function (error) {
-        console.log(error)
-    })
+        }}, 
+        function(err,httpResponse,body){
+            res.redirect('/contacts/register')
+        })
 }
 //Listing contacts → /contacts
 exports.contactGetAll = (req,res) =>{
@@ -58,15 +56,23 @@ exports.contactGetAll = (req,res) =>{
 
 //Update a contact → /contacts/:id
 exports.contactUpdate = (req,res) =>{
-    console.log("Chegou aqui")
+    request.put({url:'https://cryptic-retreat-41638.herokuapp.com/api/contacts'+req.params.id, 
+        form: {
+            name: `${req.body.name}`,
+            email: `${req.body.email}`,
+            phone: `${req.body.phone}`,
+            gender: `${req.body.gender}`
+        }}, 
+        function(err,httpResponse,body){
+            res.redirect('/')
+        })
 }
 
 //Delete a contact → /contacts/:id
 exports.contactDelete = (req,res) =>{
     axios.delete("https://cryptic-retreat-41638.herokuapp.com/api/contacts/"+req.params.id)
     .then(function (response) {
-        console.log(response.data)
-        res.redirect('/contacts')
+        res.send(response.data.status)
     })
     .catch(function (error) {
         console.log(error)
