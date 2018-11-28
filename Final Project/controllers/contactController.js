@@ -39,8 +39,6 @@ exports.contactRegister = (req,res) =>{
 }
 //Listing contacts → /contacts
 exports.contactGetAll = (req,res) =>{
-    //using models
-    // console.log(contact.getAll()) // returning undefined
 
     // Without using models
     axios.get('https://cryptic-retreat-41638.herokuapp.com/api/contacts')
@@ -56,7 +54,6 @@ exports.contactGetAll = (req,res) =>{
 
 //Update a contact → /contacts/:id
 exports.contactUpdate = (req,res) =>{
-    console.log(`${req.body.id}`)
     request.put({url:'https://cryptic-retreat-41638.herokuapp.com/api/contacts/'+req.body.id, 
         form: {
             name: `${req.body.name}`,
@@ -66,7 +63,8 @@ exports.contactUpdate = (req,res) =>{
         }}, 
         function(err,httpResponse,body){
             res.redirect('/')
-        })
+        }
+    )
 }
 
 //Delete a contact → /contacts/:id
